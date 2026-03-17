@@ -57,6 +57,9 @@ Durant el desenvolupament, s’ha utilitzat **ChatGPT (OpenAI)** com assistent p
 
 **Nota:** tot el codi final ha estat revisat i adaptat manualment per assegurar la coherència amb l’arquitectura del projecte i bones pràctiques. L’IA ha servit com a assistent, no com a substitut del desenvolupador.
 
+https://drive.google.com/file/d/1nBV84SOVPMjolAMfGpz0CzkxcPl1I9Id/view?usp=sharing
+
+
 
 # MiniSpa
 
