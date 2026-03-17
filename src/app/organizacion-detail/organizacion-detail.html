@@ -1,0 +1,39 @@
+@if (loading) {
+  <p>Cargando...</p>
+}
+
+@if (!loading && errorMsg) {
+  <p>{{ errorMsg }}</p>
+}
+
+@if (organizacion && !loading) {
+  <h2>{{ organizacion.name }}</h2>
+
+  <h3>Usuarios en esta organización</h3>
+  @if (usuarios.length > 0) {
+    <ul>
+      @for (user of usuarios; track user._id) {
+        <li>
+          {{ user.name }} — {{ user.email }}
+          <button (click)="eliminar(user._id)">❌ Eliminar</button>
+        </li>
+      }
+    </ul>
+  } @else {
+    <p>No hay usuarios en esta organización.</p>
+  }
+
+  <h3>Agregar usuario</h3>
+  @if (usuariosDisponibles.length > 0) {
+    <ul>
+      @for (user of usuariosDisponibles; track user._id) {
+        <li>
+          {{ user.name }} — {{ user.email }}
+          <button (click)="agregar(user._id)">➕ Agregar</button>
+        </li>
+      }
+    </ul>
+  } @else {
+    <p>Todos los usuarios ya pertenecen a esta organización.</p>
+  }
+}

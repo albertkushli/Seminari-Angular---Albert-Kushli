@@ -18,7 +18,7 @@
     
     <!-- Nombre con truncado si supera de 15 caracteres y botón para expandir -->
     <div>
-      <span class="name">
+      <span class="name" (click)="verDetalle(org._id)" style="cursor:pointer">
       {{
         expanded[org._id] || org.name.length <= 15
           ? org.name

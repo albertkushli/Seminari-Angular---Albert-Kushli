@@ -50,4 +50,18 @@ export class OrganizacionService {
       `${this.baseUrl}/organizaciones/${id}`
     );
   }
+
+  addUsuarioToOrg(orgId: string, userId: string): Observable<Organizacion> {
+    return this.http.put<Organizacion>(
+    `${this.baseUrl}/organizaciones/${orgId}/usuarios/${userId}`, {}
+    );
+  }
+
+  removeUsuarioFromOrg(orgId: string, userId: string): Observable<Organizacion> {
+    return this.http.delete<Organizacion>(
+      `${this.baseUrl}/organizaciones/${orgId}/usuarios/${userId}`
+    );
+  }
 }
+
+

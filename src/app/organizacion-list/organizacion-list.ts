@@ -5,6 +5,7 @@ import { Organizacion } from '../models/organizacion.model';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -28,7 +29,11 @@ export class OrganizacionList implements OnInit {
   limite = 10;
   mostrarTodasOrganizaciones = false;
   
-  constructor(private api: OrganizacionService, private fb: FormBuilder, private cdr: ChangeDetectorRef, private dialog: MatDialog) {
+  constructor(private api: OrganizacionService,
+  private fb: FormBuilder,
+  private cdr: ChangeDetectorRef,
+  private dialog: MatDialog,
+  private router: Router) {
     this.organizacionForm = this.fb.group({
       nombre: ['', Validators.required],
     });
@@ -90,6 +95,11 @@ export class OrganizacionList implements OnInit {
       return this.organizacionesFiltradas;
     }
     return this.organizacionesFiltradas.slice(0, this.limite);
+  }
+
+  //Función: ir al detalle de la organización
+  verDetalle(id: string): void {
+  this.router.navigate(['/organizacion', id]);
   }
 
   //Función: editar organización
